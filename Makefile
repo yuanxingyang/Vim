@@ -17,7 +17,7 @@ vundle:vimrc
 	vim +BundleInstall +qall
 plugin:vundle
 	@echo "config plugin"
-	cd .vim/bundle/YouCompleteMe
+	cd ~/.vim/bundle/YouCompleteMe
 	./install.sh --clang-completer
 clean:
 	@echo "clean..."
