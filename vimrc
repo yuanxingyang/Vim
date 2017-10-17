@@ -29,6 +29,22 @@ nnoremap <C-l> gt
 nnoremap <C-h> gT
 nnoremap <leader>t : tabe<CR>
 
+
+function! UpdateCtags()
+	let curdir=getcwd()
+	while !filereadable("./tags")
+		cd ..
+		if getcwd() == "/"
+			break
+		endif
+	endwhile
+	if filewritable("./tags")
+		!ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+	endif
+	execute ":cd " . curdir
+endfunction
+
+nmap <F10> :call UpdateCtags()<CR> 
 "开始使用Vundle的必须配置
 "set nocompatible
 filetype off
