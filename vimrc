@@ -24,11 +24,14 @@ set hlsearch
 autocmd! bufwritepost $HOME/.vimrc source %
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
-let mapleader = ','
-nnoremap <C-l> gt
-nnoremap <C-h> gT
-nnoremap <leader>t : tabe<CR>
-
+"let mapleader = ','
+"noremap <C-l> gt
+"nnoremap <C-h> gT
+"nnoremap <leader>t : tabe<CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 function! UpdateCtags()
 	let curdir=getcwd()

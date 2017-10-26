@@ -9,7 +9,7 @@ if version > 580
 endif
 
 set t_Co=256
-let g:colors_name = "c__"
+let g:colors_name = "private"
 
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
