@@ -5,6 +5,7 @@ configall:plugin
 vimrc:colorscheme
 	@echo "config vimrc"
 	ln vimrc ~/.vimrc
+	ln gdbinit ~/.gdbinit
 
 colorscheme:
 	@echo "config colorscheme"
