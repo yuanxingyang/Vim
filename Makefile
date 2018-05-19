@@ -1,4 +1,6 @@
 .PHONY: configall clean
+exist = $(shell if [ -f $(FILE) ]; then echo "exist"; else echo "notexist"; fi;)
+
 configall:plugin
 	@echo "config finish!"
 
@@ -14,12 +16,18 @@ colorscheme:
 vundle:vimrc git
 	@echo "config vundle"
 	mkdir -p ~/.vim/bundle/
+ifeq (exist,"~/.vim/bundle/vundle")
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
+else
+	cd ~/.vim/bundle/vundle
+	git pull
+	vim +BundleInstall +qall
+endif
+
 plugin:vundle cmake python_dev
 	@echo "config plugin"
-	cd ~/.vim/bundle/YouCompleteMe
-	./install.sh --clang-completer
+	cd ~/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer
 cmake:
 	sudo apt-get install cmake -y
 python_dev:
@@ -29,4 +37,5 @@ git:
 clean:
 	@echo "clean..."
 	rm ~/.vimrc
+	rm ~/.gdbinit
 	rm ~/.vim/colors/private.vim
