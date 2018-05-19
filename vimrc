@@ -33,6 +33,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+inoremap  <C-j>   <Down>
+inoremap  <C-k>   <Up>
 function! UpdateCtags()
 	let curdir=getcwd()
 	while !filereadable("./tags")
@@ -42,7 +44,7 @@ function! UpdateCtags()
 		endif
 	endwhile
 	if filewritable("./tags")
-		!ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+		!./genTags.sh 
 	endif
 	execute ":cd " . curdir
 endfunction
