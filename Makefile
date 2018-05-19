@@ -27,7 +27,9 @@ endif
 
 plugin:vundle cmake python_dev
 	@echo "config plugin"
+ifeq (exist,"~/.vim/bundle/YouCompleteMe")
 	cd ~/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer
+endif
 cmake:
 	sudo apt-get install cmake -y
 python_dev:
