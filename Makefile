@@ -2,6 +2,9 @@
 exist = $(shell if [ -f $(FILE) ]; then echo "exist"; else echo "notexist"; fi;)
 
 configall:plugin
+ifeq (exist,"~/.vim/bundle/LeaderF/")
+	cd ~/.vim/bundle/LeaderF/ && ./install.sh
+endif
 	@echo "config finish!"
 
 vimrc:colorscheme
@@ -20,8 +23,7 @@ ifeq (exist,"~/.vim/bundle/vundle")
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 	vim +BundleInstall +qall
 else
-	cd ~/.vim/bundle/vundle
-	git pull
+	cd ~/.vim/bundle/vundle && git pull
 	vim +BundleInstall +qall
 endif
 

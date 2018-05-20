@@ -105,6 +105,11 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
+Bundle 'Yggdroot/LeaderF',{ 'do': './install.sh' }
+let g:Lf_ShortcutF = '<C-f>'
+"let g:Lf_RootMarkers = 'genTags.sh'
+"let g:Lf_WorkingDirectoryMode = 'AcF'
+
 syntax on
 colorscheme private
 filetype plugin indent on
