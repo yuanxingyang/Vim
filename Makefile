@@ -27,7 +27,7 @@ else
 	vim +BundleInstall +qall
 endif
 
-plugin:vundle cmake python_dev
+plugin:vundle cmake python_dev tmux
 	@echo "config plugin"
 ifeq (exist,"~/.vim/bundle/YouCompleteMe")
 	cd ~/.vim/bundle/YouCompleteMe && ./install.sh --clang-completer
@@ -38,6 +38,13 @@ python_dev:
 	sudo apt-get install python-dev -y
 git:
 	sudo apt-get install git -y
+
+tmux:
+ifeq (exist,"~/.vim/bundle/vundle")	
+	sudo apt-get install tmux
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	ln tmux.conf ~/.tmux.conf
+endif
 clean:
 	@echo "clean..."
 	rm ~/.vimrc
