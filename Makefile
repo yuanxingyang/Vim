@@ -1,7 +1,7 @@
 .PHONY: configall clean
 exist = $(shell if [ -f $(FILE) ]; then echo "exist"; else echo "notexist"; fi;)
 
-configall:plugin
+configall:plugin ssh
 ifeq (exist,"~/.vim/bundle/LeaderF/")
 	cd ~/.vim/bundle/LeaderF/ && ./install.sh
 endif
@@ -45,6 +45,8 @@ ifeq (exist,"~/.vim/bundle/vundle")
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	ln tmux.conf ~/.tmux.conf
 endif
+ssh:
+	echo "ServerAliveInterval 60" >> ~/.ssh/config
 clean:
 	@echo "clean..."
 	rm ~/.vimrc
