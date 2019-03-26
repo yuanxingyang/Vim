@@ -11,7 +11,7 @@ set cursorline              "为光标所在行加下划线
 set cursorcolumn
 "set number                  "显示行号 
 set autoread                "文件在Vim之外修改过，自动重新读入 
-
+set mouse=c                 "ssh copy
 set ignorecase              "检索时忽略大小写 
 set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件 
 "set hls                     "检索时高亮显示匹配项 
@@ -82,7 +82,8 @@ Bundle 'Colour-Sampler-Pack'
 
 Bundle 'majutsushi/tagbar'
 let g:tagbar_ctags_bin='ctags'
-let g:tagbar_width=30
+let g:tagbar_width=100
+let g:tagbar_autofocus = 1
 map <F3> :Tagbar<CR>
 
 Bundle 'scrooloose/nerdtree'
