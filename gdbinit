@@ -10,4 +10,4 @@ set print object on
 set print pretty on
 set print repeats unlimited
 set print vtbl on
-
+set auto-load safe-path /
